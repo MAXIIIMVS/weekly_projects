@@ -11,10 +11,10 @@ A collection of **small, random weekend projects** across **web development, gam
 
 ## Weekend Progress
 
-| Weekend | Project                | Technologies          | Status      |
-| ------- | ---------------------- | --------------------- | ----------- |
-| 01      | Todo App               | TypeScript, HTML, CSS | ✅ Complete |
-| 02      | Coming Next Weekend... | To be determined      | 📝 Planned  |
+| Weekend | Project                | Technologies          | Status      | Link                                                                                                    |
+| ------- | ---------------------- | --------------------- | ----------- | ------------------------------------------------------------------------------------------------------- |
+| 01      | Todo App               | TypeScript, HTML, CSS | ✅ Complete | [README](./01_todo_app/README.md) [Live Demo](https://maxiiimvs.github.io/weekly_projects/01_todo_app/) |
+| 02      | Coming Next Weekend... | To be determined      | 📝 Planned  | WIP                                                                                                     |
 
 ## Structure and Notes
 
