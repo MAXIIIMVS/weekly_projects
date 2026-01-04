@@ -2,6 +2,8 @@
 
 A simple, elegant todo application built with **TypeScript** and modern **CSS**, designed to be responsive, accessible, and easy to use.
 
+**Live Demo:** [View Todo App](https://maxiiimvs.github.io/weekly_projects/01_todo_app/)
+
 ## Features
 
 - Add new todos
