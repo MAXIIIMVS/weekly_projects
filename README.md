@@ -1,37 +1,37 @@
 # Weekly Projects Repository
 
-A curated collection of weekly programming projects to sharpen your skills, explore new technologies, and build a portfolio of practical work.
+A collection of **small, random weekend projects** across **web development, game development, and general programming**. Each project is designed to be completed in a few hours and serves as a personal hands-on exercise to explore new technologies and programming concepts. These projects are my own experiments and **not intended as tutorials**.
 
 ## Goals
 
-- Complete one project per week
-- Explore and learn new technologies, libraries, and programming patterns
+- Complete one small project each weekend
+- Explore a variety of languages, frameworks, and development paradigms
 - Strengthen problem-solving and coding skills
-- Maintain a showcase-ready portfolio
+- Build a diverse, practical portfolio of projects
 
-## Weekly Progress
+## Weekend Progress
 
-| Week | Project        | Status      |
-| ---- | -------------- | ----------- |
-| 01   | Todo App       | ✅ Complete |
-| 02   | Coming soon... | 📝 Planned  |
-| 03   | Coming soon... | 📝 Planned  |
+| Weekend | Project                | Technologies          | Status      |
+| ------- | ---------------------- | --------------------- | ----------- |
+| 01      | Todo App               | TypeScript, HTML, CSS | ✅ Complete |
+| 02      | Coming Next Weekend... | To be determined      | 📝 Planned  |
 
 ## Structure and Notes
 
-Each weekly project will have its own directory and its own `README.md` with detailed instructions. This main repository serves as a central tracker for all weekly projects and their progress.
+All projects live inside their own directories within this single repository. Each project has its own `README.md` with detailed instructions. Projects are small and experimental, and each may use different technologies depending on the goals of that weekend's exercise.
 
 ## How to Access
 
-1. Visit the repository for the project you want to explore (links will be provided when available).
-2. Clone it using:
+1. Clone the repository:
 
 ```bash
 git clone git@github.com:MAXIIIMVS/weekly_projects.git
 ```
 
+2. Navigate to a specific project folder.
+
 3. Follow the project-specific `README.md` for setup and usage instructions.
 
 ---
 
-Keep coding, keep learning, and enjoy building your weekly projects!
+Keep coding, keep learning, and enjoy building your weekend projects across web, game, and general programming!
