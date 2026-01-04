@@ -1,0 +1,4 @@
+*/.project-root
+*/node_modules
+dist/
+tags
