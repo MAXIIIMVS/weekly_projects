@@ -27,7 +27,7 @@ Each weekly project will have its own directory and its own `README.md` with det
 2. Clone it using:
 
 ```bash
-git clone git@github.com:MAXIIIMVS/weekly_projects_2026.git
+git clone git@github.com:MAXIIIMVS/weekly_projects.git
 ```
 
 3. Follow the project-specific `README.md` for setup and usage instructions.
