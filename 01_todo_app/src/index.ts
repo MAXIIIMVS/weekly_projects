@@ -1,6 +1,6 @@
 const projectName = "weekly-project-todo-app";
-const trashCan = "&#128465;";
-const pencil = "&#9998;";
+const trashCan = "";
+const pencil = "";
 
 type Todo = {
   id: ReturnType<typeof crypto.randomUUID>;
@@ -11,11 +11,15 @@ const todos: Todo[] = [];
 
 const storedText = localStorage.getItem(projectName);
 if (storedText) {
-  const storedTodos = JSON.parse(storedText) as Todo[];
-  storedTodos.forEach((todo) => {
-    todos.push(todo);
-    createTodoElement(todo);
-  });
+  try {
+    const storedTodos = JSON.parse(storedText) as Todo[];
+    storedTodos.forEach((todo) => {
+      todos.push(todo);
+      createTodoElement(todo);
+    });
+  } catch (error) {
+    console.error("Error loading todos from localStorage:", error);
+  }
 }
 
 const todoForm = document.querySelector<HTMLFormElement>(".todo-form");
@@ -32,12 +36,13 @@ function submitTodo(e: SubmitEvent) {
   if (!todoInput) {
     throw new Error("todo-input is not defined");
   }
-  if (!todoInput.value) {
+  const text = todoInput.value.trim();
+  if (!text) {
     return;
   }
   const newTodo: Todo = {
     id: crypto.randomUUID(),
-    text: todoInput.value,
+    text,
   };
   todos.push(newTodo);
   createTodoElement(newTodo);
@@ -62,12 +67,14 @@ function createTodoElement(todo: Todo) {
   todoEdit.className = "todo-edit";
   todoEdit.innerHTML = pencil;
   todoEdit.setAttribute("aria-label", "Edit Todo");
+  todoEdit.setAttribute("type", "button");
   todoEdit.addEventListener("click", handleTodoEdit);
   div.appendChild(todoEdit);
 
   const todoDelete = document.createElement("button");
   todoDelete.className = "todo-delete";
   todoDelete.setAttribute("aria-label", "Delete Todo");
+  todoDelete.setAttribute("type", "button");
   todoDelete.innerHTML = trashCan;
   todoDelete.addEventListener("click", handleTodoDelete);
   div.appendChild(todoDelete);
@@ -92,37 +99,44 @@ function handleTodoEdit(e: MouseEvent) {
     throw new Error("couldn't find the text for the todo");
   }
 
-  li.style.display = "none";
   const id = li.dataset.id;
+  const originalText = textEl.textContent ?? "";
+
+  li.style.display = "none";
 
   const input = document.createElement("input");
   input.type = "text";
-  input.className = "todo-edit";
-  input.value = textEl.textContent ?? "";
+  input.className = "todo-edit-input";
+  input.value = originalText;
+  input.setAttribute("aria-label", "Edit todo text");
 
   li.parentElement?.insertBefore(input, li);
   input.focus();
   input.select();
 
-  const keydownHandler = (ev: KeyboardEvent) => {
-    if (ev.key === "Enter") {
+  const handleEdit = () => {
+    const newText = input.value.trim();
+    if (newText) {
+      textEl.textContent = newText;
       const index = todos.findIndex((t) => t.id === id);
-      if (index === -1) {
-        throw new Error("could not find the todo");
-      }
-      if (input.value) {
-        textEl.textContent = input.value;
-        todos[index]!.text = input.value;
+      if (index !== -1) {
+        todos[index]!.text = newText;
         localStorage.setItem(projectName, JSON.stringify(todos));
       }
-      cleanup();
+    }
+    cleanup();
+  };
+
+  const keydownHandler = (ev: KeyboardEvent) => {
+    if (ev.key === "Enter") {
+      handleEdit();
     } else if (ev.key === "Escape") {
-      input.blur();
+      cleanup();
     }
   };
 
   const blurHandler = () => {
-    cleanup();
+    handleEdit();
   };
 
   function cleanup() {
@@ -138,8 +152,8 @@ function handleTodoEdit(e: MouseEvent) {
   input.addEventListener("blur", blurHandler);
 }
 
-function handleTodoDelete(e: PointerEvent) {
-  const li = (e.target as HTMLElement).parentElement?.parentElement;
+function handleTodoDelete(e: MouseEvent) {
+  const li = (e.target as HTMLElement)?.closest("li");
   if (!li) {
     throw new Error("parent li element doesn't exist");
   }

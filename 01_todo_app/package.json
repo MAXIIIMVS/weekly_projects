@@ -1,13 +1,18 @@
 {
   "name": "01_todo_app",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple Todo app built with TypeScript and modern CSS",
   "main": "index.js",
   "scripts": {
     "dev": "npx tsc --watch",
-    "serve": "npx live-server --open=./index.html"
+    "serve": "npx live-server --open=./index.html",
+    "build": "npx tsc"
   },
-  "keywords": [],
+  "keywords": [
+    "todo",
+    "typescript",
+    "web"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {

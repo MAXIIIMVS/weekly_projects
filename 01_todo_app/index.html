@@ -2,20 +2,36 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Weekly Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weekly Project - Todo App</title>
     <link rel="stylesheet" href="styles.css" />
+    <style>
+      @font-face {
+        font-family: "Emoji";
+        src:
+          local("Apple Color Emoji"), local("Segoe UI Emoji"),
+          local("Segoe UI Symbol"), local("Noto Color Emoji");
+        unicode-range: U+1F000-1F644, U+203C-3299;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+          Cantarell, "Open Sans", "Helvetica Neue", sans-serif, "Emoji";
+      }
+    </style>
   </head>
   <body>
-    <h1>Todo List</h1>
     <div id="todo-container">
+      <h1>Todo List</h1>
       <form class="todo-form">
         <input
           class="todo-input"
           type="text"
           autofocus
-          placeholder="Title..."
+          placeholder="What needs to be done?"
         />
-        <input type="submit" value="Add" />
+        <input type="submit" value="Add Task" />
       </form>
       <ul class="todos-list"></ul>
     </div>
