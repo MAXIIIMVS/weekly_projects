@@ -1,3 +1,4 @@
 */.project-root
 */node_modules
 tags
+*.out
