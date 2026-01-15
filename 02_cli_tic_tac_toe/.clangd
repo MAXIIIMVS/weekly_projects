@@ -1,2 +1,2 @@
 CompileFlags:
-  Add: [-std=c++23, -I/path/to/your/includes]
+  Add: [-std=c++23]

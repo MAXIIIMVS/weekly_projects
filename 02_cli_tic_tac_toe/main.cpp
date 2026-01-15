@@ -1,21 +1,24 @@
 #include <cstddef>
+#include <cstdio>
 #include <iostream>
+#include <limits>
 #include <print>
 
 class TicTacToe {
 public:
   void play() {
-    while (true) {
+    while (!is_game_over()) {
       clear_screen();
       draw_board();
 
-      int choice{0};
-      std::print("Player {}, enter your choice: ", _turn);
+      int choice{};
+      std::print("Player {}, enter your choice (1-9): ", _turn);
       std::cin >> choice;
-      if (choice < 1 || choice > 9) {
-        continue;
-      }
-      if (_board[choice - 1] != 0) {
+      // FIX: code breaks when entering <C-D> instead of an index
+      if (std::cin.fail() || (choice < 1 || choice > 9) ||
+          _board[choice - 1] != 0) {
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         continue;
       }
 
@@ -26,19 +29,16 @@ public:
         std::println("Player {} won!", _turn);
         return;
       }
-      if (is_game_draw()) {
-        clear_screen();
-        draw_board();
-        std::println("It's a draw!");
-        return;
-      }
       _turn = _turn == 1 ? 2 : 1;
     }
+    clear_screen();
+    draw_board();
+    std::println("It's a draw!");
   }
 
   void clear_screen() { std::cout << "\033[2J\033[1;1H"; }
 
-  bool is_game_draw() const {
+  bool is_game_over() const {
     for (int i = 0; i < 9; ++i) {
       if (_board[i] == 0) { // there's more to play
         return false;
@@ -58,17 +58,21 @@ public:
            (_board[2] == _turn && _board[4] == _turn && _board[6] == _turn);
   }
 
-  void draw_board() const {
-    std::println("+---+---+---+");
+  void draw_board(int cell_width = 5) const {
+    std::println("+{0:-^{1}}+{0:-^{1}}+{0:-^{1}}+", "", cell_width);
     for (std::size_t i = 0; i < 9; ++i) {
       if (i % 3 == 0) { // first column
         std::print("|");
       }
 
-      std::printf(" %c |", _board[i] == 1 ? 'X' : _board[i] == 2 ? 'O' : ' ');
+      std::print("{0:^{1}}|",
+                 _board[i] == 1   ? 'X'
+                 : _board[i] == 2 ? 'O'
+                                  : ' ',
+                 cell_width);
 
       if ((i + 1) % 3 == 0) { // last column
-        std::println("\n+---+---+---+");
+        std::println("\n+{0:-^{1}}+{0:-^{1}}+{0:-^{1}}+", "", cell_width);
       }
     }
   }
