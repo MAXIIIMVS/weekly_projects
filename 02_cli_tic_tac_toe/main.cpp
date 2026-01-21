@@ -14,8 +14,11 @@ public:
       int choice{};
       std::print("Player {}, enter your choice (1-9): ", _turn);
       std::cin >> choice;
-      // FIX: code breaks when entering <C-D> instead of an index
-      if (std::cin.fail() || (choice < 1 || choice > 9) ||
+      if (std::cin.eof()) {
+        std::println("\nInput closed. Exiting game.");
+        return; // or break;
+      }
+      if (std::cin.fail() || choice < 1 || choice > 9 ||
           _board[choice - 1] != 0) {
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
