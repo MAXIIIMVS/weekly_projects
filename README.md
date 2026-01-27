@@ -11,11 +11,11 @@ A collection of **small, random weekend projects** across **web development, gam
 
 ## Weekend Progress
 
-| Weekend | Project           | Technologies           | Status      | Link                                                                                            |
-| ------- | ----------------- | ---------------------- | ----------- | ----------------------------------------------------------------------------------------------- |
-| 01      | Todo App          | TypeScript, HTML, CSS  | ✅ Complete | [README](./01_todo_app/README.md) \| [Live Demo](01_todo_app/index.html)                        |
-| 02      | CLI Tic-Tac-Toe   | C++ 23                 | ✅ Complete | [README](./02_cli_tic_tac_toe/README.md)                                                        |
-| 03      | React Tic-Tac-Toe | TypeScript, React, CSS | ✅ Complete | [README](./03_react_tic_tac_toe/README.md) \| [Live Demo](03_react_tic_tac_toe/dist/index.html) |
+| Weekend | Project           | Technologies           | Status      | Link                                                                                                                              |
+| ------- | ----------------- | ---------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| 01      | Todo App          | TypeScript, HTML, CSS  | ✅ Complete | [README](./01_todo_app/README.md) \| [Live Demo](https://MAXIIIMVS.github.io/weekly_projects/01_todo_app/)                        |
+| 02      | CLI Tic-Tac-Toe   | C++ 23                 | ✅ Complete | [README](./02_cli_tic_tac_toe/README.md)                                                                                          |
+| 03      | React Tic-Tac-Toe | TypeScript, React, CSS | ✅ Complete | [README](./03_react_tic_tac_toe/README.md) \| [Live Demo](https://MAXIIIMVS.github.io/weekly_projects/03_react_tic_tac_toe/dist/) |
 
 > **Note:** Web projects include live demos hosted via GitHub Pages where available.
 

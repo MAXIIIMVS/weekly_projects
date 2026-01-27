@@ -2,7 +2,7 @@
 
 A classic **Tic-Tac-Toe** game built with **React** and **TypeScript**, featuring a clean and responsive interface, zero layout shifts, and simple state management.
 
-**Live Demo:** [View Tic-Tac-Toe](https://MAXIIIMVS.github.io/weekly_projects/03_react_tic_tac_toe/dist/index.html)
+**Live Demo:** [View Tic-Tac-Toe](https://MAXIIIMVS.github.io/weekly_projects/03_react_tic_tac_toe/dist/)
 
 ## Features
 
