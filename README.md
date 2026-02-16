@@ -16,6 +16,7 @@ A collection of **small, random weekend projects** across **web development, gam
 | 01      | Todo App          | TypeScript, HTML, CSS  | ✅ Complete | [README](./01_todo_app/README.md) \| [Live Demo](https://MAXIIIMVS.github.io/weekly_projects/01_todo_app/)                        |
 | 02      | CLI Tic-Tac-Toe   | C++ 23                 | ✅ Complete | [README](./02_cli_tic_tac_toe/README.md)                                                                                          |
 | 03      | React Tic-Tac-Toe | TypeScript, React, CSS | ✅ Complete | [README](./03_react_tic_tac_toe/README.md) \| [Live Demo](https://MAXIIIMVS.github.io/weekly_projects/03_react_tic_tac_toe/dist/) |
+| 04      | Analog Clock      | C 11, Raylib, CMake    | ✅ Complete | [README](./04_analog_clock/README.md)                                                                                             |
 
 > **Note:** Web projects include live demos hosted via GitHub Pages where available.
 

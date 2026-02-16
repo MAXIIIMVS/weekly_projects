@@ -9,7 +9,7 @@ typedef struct {
   const char *title;
 } WindowInfo;
 
-typedef enum { Hour, Minute, Second } TimeType;
+typedef enum { Hour, Minute, Second } HandleType;
 
 float deg_to_rad(float deg) { return deg * (PI / 180.0f); }
 
@@ -37,7 +37,7 @@ void draw_minute_marks(const Vector2 *const circle_center, float radius,
   }
 }
 
-float get_radian_from_time(const struct tm *const t, TimeType type) {
+float get_radian_from_time(const struct tm *const t, HandleType type) {
   /* NOTE:
    * every circle is 360°
    * a full clock has 12 hours
@@ -59,10 +59,10 @@ float get_radian_from_time(const struct tm *const t, TimeType type) {
   }
 }
 
-void draw_handle(TimeType type, const Vector2 *const start, float length,
-                 const struct tm *const t, float start_angle_rad, Color color,
-                 float thickness) {
-  float angle = start_angle_rad + get_radian_from_time(t, type);
+void draw_handle(HandleType handle_type, const Vector2 *const start,
+                 float length, const struct tm *const t, float start_angle_rad,
+                 Color color, float thickness) {
+  float angle = start_angle_rad + get_radian_from_time(t, handle_type);
   float x = start->x + length * cosf(angle);
   float y = start->y + length * sinf(angle);
   DrawLineEx(*start, (Vector2){x, y}, thickness, color);
@@ -92,7 +92,7 @@ int main(void) {
     DrawCircle(circle_center.x, circle_center.y, circle_radius, FACE);
 
     draw_minute_marks(&circle_center, circle_radius, deg_to_rad(-90));
-    draw_handle(Hour, &circle_center, circle_radius - 45.0f, &t,
+    draw_handle(Hour, &circle_center, circle_radius - 60.0f, &t,
                 deg_to_rad(-90), RED, 5.0f);
     draw_handle(Minute, &circle_center, circle_radius - 25.0f, &t,
                 deg_to_rad(-90), GREEN, 5.0f);
