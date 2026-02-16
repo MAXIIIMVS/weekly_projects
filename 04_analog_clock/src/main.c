@@ -82,7 +82,7 @@ int main(void) {
   SetConfigFlags(FLAG_MSAA_4X_HINT);
 
   InitWindow(window.width, window.height, window.title);
-  SetTargetFPS(60); // this is a clock, more than 60 is redundant
+  SetTargetFPS(6);
 
   while (!WindowShouldClose()) {
     time(&now);
